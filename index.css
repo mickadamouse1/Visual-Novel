@@ -1,0 +1,63 @@
+* {
+    font-family: "Raleway", sans-serif;
+}
+
+body {
+    background: #e395b6;
+}
+
+#gameTitle {
+    text-align: center;
+    font-size: 3rem;
+}
+
+#gameWindow {
+    width: 55.6rem;
+    height: 50rem;
+    background: #f4f4f4;
+    margin: 0 auto;
+    position: relative;
+    border: 3px solid #333;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 80% 20%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+#graphicsArea {
+    background: url("images/background/classroom.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#textArea {
+    background: #dd7373;
+    bottom: 0;
+    border-top: 3px solid #333;
+    padding: 1rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    z-index: 2;
+}
+
+/* CHARACTER */
+
+#aiko {
+    background: url("images/character/aikoPlain.png")  center/contain no-repeat;
+    width: 22rem;
+    height: 39rem;
+    position: absolute;
+    bottom: -.5rem;
+    left: 29%;
+    transition: .1s ease;
+    -webkit-backface-visibility: hidden;
+-moz-backface-visibility:    hidden;
+-ms-backface-visibility:     hidden;
+}
+
+#aiko:after {
+    display: none;
+    background: url("images/character/aikoPlain.png") url("images/character/aikoBlush1.png") url("images/character/aikoBlush2.png") url("images/character/aikoBlush3.png");
+}
