@@ -45,19 +45,12 @@ body {
 /* CHARACTER */
 
 #aiko {
-    background: url("images/character/aikoPlain.png")  center/contain no-repeat;
+    background: url("images/character/spriteSheet/ssAiko.png") no-repeat;
+    background-size: 222rem;
+    background-position: 3rem;
     width: 22rem;
     height: 39rem;
     position: absolute;
-    bottom: -.5rem;
+    bottom: -2rem;
     left: 29%;
-    transition: .1s ease;
-    -webkit-backface-visibility: hidden;
--moz-backface-visibility:    hidden;
--ms-backface-visibility:     hidden;
-}
-
-#aiko:after {
-    display: none;
-    background: url("images/character/aikoPlain.png") url("images/character/aikoBlush1.png") url("images/character/aikoBlush2.png") url("images/character/aikoBlush3.png");
 }
