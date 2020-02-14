@@ -1,27 +1,53 @@
 window.onload = function() {
 
-    aiko.onclick = function() {
-        changeExpression('plain2');  
-    }
+    const arr = ['plain1', 'plain2', 'smile1', 'smile2', 'blink', 'blink2', 'huff', 'angry1', 'angry2', 'cry1', 'cry2'];
+
+    let x = 0;
+
+    setInterval(() => {
+        changeExpression(arr[x]);
+        x++;
+        if (x >= arr.length) x = 0;
+    }, 500);
 
     const changeExpression = expression => {
-        var x = 48;
+        let x;
         switch(expression) {
             case 'plain1': 
                 x = '3rem';
                 break;
             case 'plain2':
-                x = -248;
+                x = '-20.9rem';
                 break;
             case 'smile1':
-                x = '-34rem';
+                x = '-44.8rem';
                 break;
             case 'smile2':
-                x = ''
-            case 'cry1':
-                x = '-163.5rem';
+                x = '-68.75rem'
+                break;
+            case 'blink':
+                x = '-92.65rem';
+                break;
+            case 'blink2':
+                x = '-116.55rem';
+                break;
+            case 'huff':
+                x = '-140.5rem';
+                break;
+            case 'angry1':
+                x = '-164.4rem';
+                break;
+            case 'angry2':
+                x = '-188.3rem';
+                break;
+            case 'cry1': 
+                x = '-212.25rem';
+                break;
+            case 'cry2':
+                x = '-236.15rem';
+                break;
         }
-        aiko.style.backgroundPosition = x + "px";
+        aiko.style.backgroundPosition = x;
     }
 }
 

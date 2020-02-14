@@ -1,5 +1,7 @@
 * {
     font-family: "Raleway", sans-serif;
+    -moz-user-select: none;
+    user-select: none;
 }
 
 body {
@@ -18,9 +20,6 @@ body {
     margin: 0 auto;
     position: relative;
     border: 3px solid #333;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 80% 20%;
     box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
@@ -30,27 +29,47 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
+    height: 100%;
+    width: 100%;
 }
 
 #textArea {
-    background: #dd7373;
-    bottom: 0;
-    border-top: 3px solid #333;
     padding: 1rem;
     font-size: 1.3rem;
     font-weight: 500;
     z-index: 2;
+    position: absolute;
+    bottom: 2rem;
+    height: 7rem;
+    width: 51rem;
+    left: 2.5%;
+    color: white;
+    border-radius: 1rem;
+    box-shadow: 1rem 0rem 0.7rem rgba(0,0,0,0.7), -1rem 0rem .7rem rgba(0,0,0,0.7), 0rem 1rem 1rem rgba(0,0,0,0.5);
+    border-inline: solid 1px rgba(0,0,0,1);
+}
+
+#textArea div {
+    background: black;
+    opacity: 0.75;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: .955rem;
 }
 
 /* CHARACTER */
 
 #aiko {
     background: url("images/character/spriteSheet/ssAiko.png") no-repeat;
-    background-size: 222rem;
+    background-size: 287rem;
     background-position: 3rem;
-    width: 22rem;
-    height: 39rem;
+    width: 27rem;
+    height: 50.2rem;
     position: absolute;
     bottom: -2rem;
-    left: 29%;
+    left: 23%;
 }

@@ -1,0 +1,6 @@
+width: 35rem;
+height: 50.2rem;
+bottom: 0;
+left: 37%;
+bk position: 3rem !imp;
+bk size: 35rem;
