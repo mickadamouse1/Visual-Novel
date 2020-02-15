@@ -6,6 +6,7 @@
 
 body {
     background: #e395b6;
+    overflow: hidden;
 }
 
 #gameTitle {
@@ -46,7 +47,6 @@ body {
     color: white;
     border-radius: 1rem;
     box-shadow: 1rem 0rem 0.7rem rgba(0,0,0,0.7), -1rem 0rem .7rem rgba(0,0,0,0.7), 0rem 1rem 1rem rgba(0,0,0,0.5);
-    border-inline: solid 1px rgba(0,0,0,1);
 }
 
 #textArea div {
@@ -59,6 +59,10 @@ body {
     left: 0;
     z-index: -1;
     border-radius: .955rem;
+}
+
+#textArea p {
+    word-wrap: anywhere;
 }
 
 /* CHARACTER */
