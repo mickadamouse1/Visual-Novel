@@ -9,18 +9,21 @@
         <title>Visual Novel</title>
     </head>
     <body>
-        <h1 id="gameTitle">Visual Novel</h1>
         <div id="gameWindow">
             <div id="graphicsArea">
                 <div id="aiko"></div>
-
-                <!-- http://www7b.biglobe.ne.jp/~osumashi/free_bg.html -->
+                <h1 id="gameTitle">My Body is a Temple - <br><span>The Hidden Passage!</span></h1>
+                <div id="choices">
+                    <button id="choice1">Play</button>
+                    <button id="choice2">Options</button>
+                </div>
             </div>
             <div id="textArea">
                 <div></div>
-                <p>Screeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p>
+                <p id="txtRender"></p>
             </div>
         </div>
+        <script src="dialogue.js"></script>
         <script src="index.js"></script>
     </body>
 </html>

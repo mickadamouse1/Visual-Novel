@@ -1,19 +1,6 @@
+
+
 window.onload = function() {
-
-    const arr = ['plain1', 'plain2', 'smile1', 'smile2', 'blink', 'blink2', 'huff', 'angry1', 'angry2', 'cry1', 'cry2'];
-
-    let x = 0;
-
-    setInterval(() => {
-        changeExpression(arr[x]);
-        x++;
-        if (x >= arr.length) x = 0;
-    }, 50);
-
-    aiko.addEventListener('click', () => {
-        changeExpression('cry2');
-    });
-
     const changeExpression = expression => {
         let x;
         switch(expression) {
@@ -53,7 +40,11 @@ window.onload = function() {
         }
         aiko.style.backgroundPosition = x;
     }
+
+    
 }
+
+
 
 
 

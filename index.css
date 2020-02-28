@@ -2,20 +2,34 @@
     font-family: "Raleway", sans-serif;
     -moz-user-select: none;
     user-select: none;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background: #e395b6;
+    background: #000;
     overflow: hidden;
 }
 
 #gameTitle {
     text-align: center;
+    font-size: 5rem;
+    color: #fff;
+    text-shadow: 0 1px 7px rgba(0,0,0,0.75);
+    position: absolute;
+    top: 6rem;
+    background: rgba(0,0,0,0.5);
+    padding: 1rem;
+    line-height: 4rem;
+}
+
+#gameTitle span {
     font-size: 3rem;
+    color: royalblue;
 }
 
 #gameWindow {
-    width: 55.6rem;
+    width: 70rem;
     height: 50rem;
     background: #f4f4f4;
     margin: 0 auto;
@@ -25,13 +39,23 @@ body {
 }
 
 #graphicsArea {
-    background: url("images/background/classroom.jpg");
+    background: url("images/background/beach.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#choices {
+    position: absolute;
+    height: 1rem;
+    top: 26rem;
+    display: flex;
+    flex-direction: column;
 }
 
 #textArea {
@@ -40,13 +64,18 @@ body {
     font-weight: 500;
     z-index: 2;
     position: absolute;
-    bottom: 2rem;
     height: 7rem;
     width: 51rem;
-    left: 2.5%;
+    left: 8.5rem;
+    bottom: 1.9rem;
     color: white;
     border-radius: 1rem;
     box-shadow: 1rem 0rem 0.7rem rgba(0,0,0,0.7), -1rem 0rem .7rem rgba(0,0,0,0.7), 0rem 1rem 1rem rgba(0,0,0,0.5);
+
+    /* Animation Purposes */
+    opacity: 0;
+    display: none;
+    transition: .5s ease;
 }
 
 #textArea div {
@@ -62,7 +91,7 @@ body {
 }
 
 #textArea p {
-    word-wrap: anywhere;
+    word-wrap: break-word;
 }
 
 /* CHARACTER */
@@ -76,4 +105,9 @@ body {
     position: absolute;
     bottom: -2rem;
     left: 23%;
+
+    /* Animating Purposes */
+    opacity: 0;
+    display: none;
+    transition: .5s ease;
 }
