@@ -1,4 +1,26 @@
 
+var gameState = 'menu';
+
+var playerName = '';
+
+quitYes.addEventListener('click', () => {
+    console.log("yea quit");
+});
+
+quitNo.addEventListener('click', () => {
+    warning.style.opacity = '0';
+    choices.style.opacity = '1';
+
+    setTimeout(() => {
+        warning.style.display = "none";
+        choices.style.display = "flex";
+    }, 400);
+});
+
+setName.addEventListener('click', () => {
+    playerName = chooseNameInput.value;
+    console.log(playerName);
+});
 
 window.onload = function() {
     const changeExpression = expression => {

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="author" content="Michael Chambers, Adrian Golebiowski, Jakub Muszynski">
-        <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="index.css">
         <title>Visual Novel</title>
@@ -12,17 +12,44 @@
         <div id="gameWindow">
             <div id="graphicsArea">
                 <div id="aiko"></div>
-                <h1 id="gameTitle">My Body is a Temple - <br><span>The Hidden Passage!</span></h1>
+
+                <h1 id="gameTitle">My Body is a Temple<br><span>- The Dragon's Idol -</span></h1>
+
                 <div id="choices">
                     <button id="choice1">Play</button>
-                    <button id="choice2">Options</button>
+                    <button id="choice2">Credits</button>
+                    <button id="choice3">Exit</button>
+                </div>
+
+                <div id="warning">
+                    <h1>Are you sure?</h1>
+                    <div>
+                        <button id="quitYes">Yes</button>
+                        <button id="quitNo">No</button>
+                    </div>
+                    
+                </div>
+
+                <div id="textArea">
+                    <div></div>
+                    <p id="txtRender"></p>
+                </div>
+
+                <div id="blackScreen"></div>
+
+                <div id="chooseName">
+                    <h1>My name is...</h1>
+                    <input id="chooseNameInput" type="text">
+                    <button id="setName">Continue...</button>
                 </div>
             </div>
-            <div id="textArea">
-                <div></div>
-                <p id="txtRender"></p>
-            </div>
+            
+
+            
         </div>
+        <script src="choice1.js"></script>
+        <script src="choice2.js"></script>
+        <script src="choice3.js"></script>
         <script src="dialogue.js"></script>
         <script src="index.js"></script>
     </body>
