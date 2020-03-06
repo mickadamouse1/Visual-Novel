@@ -23,7 +23,7 @@ body {
     line-height: 4rem;
     border-radius: 5rem;
     box-shadow: 0 0 5px 5px pink, 0 0 10px black;
-    transition: .5s ease;
+    transition: .175s ease;
 }
 
 #gameTitle span {
@@ -34,7 +34,7 @@ body {
 #gameWindow {
     width: 70rem;
     height: 50rem;
-    background: #f4f4f4;
+    background: #000;
     margin: 5rem auto;
     position: relative;
     border: 3px solid #333;
@@ -60,7 +60,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    transition: .5s ease;
+    transition: .175s ease;
 }
 
 #choices button {
@@ -135,7 +135,7 @@ body {
 
 #warning div button {
     font-size: 2rem;
-    color: #fff;
+    color: pink;
     background: #333;
     border: none;
     border-radius: 5rem;
@@ -198,6 +198,45 @@ body {
     outline: none;
 }
 
+#credits {
+    color: #333;
+    background: pink;
+    width: 30rem;
+    border-radius: 3rem;
+    box-shadow: 0 0 5px 5px pink, 0 0 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    top: 20rem;
+    opacity: 0;
+    display: none;
+    transition: .175s ease;
+}
+
+#credits h1 {
+    font-size: 3rem;
+    margin: 2rem 0;
+}
+
+#credits p {
+    font-size: 1.75rem;
+    margin: 1rem 0;
+}
+
+#btnExitCredits {
+    font-size: 2rem;
+    color: pink;
+    background: #333;
+    width: 10rem;
+    margin: 2rem 0;
+    border: 5px solid #333;
+    border-radius: .35rem;
+    box-shadow: 0 1px 1px rgba(0,0,0,1);
+    outline: none;
+}
+
 /* CHARACTER */
 
 #aiko {
@@ -213,5 +252,5 @@ body {
     /* Animating Purposes */
     opacity: 0;
     display: none;
-    transition: .5s ease;
+    transition: .175s ease;
 }

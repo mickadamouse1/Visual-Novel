@@ -4,23 +4,65 @@ var gameState = 'menu';
 var playerName = '';
 
 quitYes.addEventListener('click', () => {
-    console.log("yea quit");
+    window.close();
 });
 
 quitNo.addEventListener('click', () => {
-    warning.style.opacity = '0';
-    choices.style.opacity = '1';
-
-    setTimeout(() => {
-        warning.style.display = "none";
-        choices.style.display = "flex";
-    }, 400);
+    setDisplay(choices, warning, 'flex', 150);
 });
 
 setName.addEventListener('click', () => {
+    gameState = 'introduction';
     playerName = chooseNameInput.value;
-    console.log(playerName);
+    
+    graphicsArea.style.background = 'url(images/background/intro.jpg) center/contain no-repeat';
+
+    textArea.style.bottom = '20.9rem';
+
+    setDisplay(graphicsArea, chooseName, 'flex', 1500);
+    setTimeout(() => {
+        blackScreen.style.transition = '5s ease';
+        setDisplay(graphicsArea, blackScreen, 'flex', 5000);
+        setDisplay(textArea, undefined, 'block', 2500);
+    }, 2000);
 });
+
+btnExitCredits.addEventListener('click', () => {
+    setDisplay(choices, credits, 'flex', 175);
+});
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// CONTROLS FADE IN AND FADE OUT OF ELEMENTS
+
+// ele1 = element that fades in.
+// ele2 = element that fades out.
+// val = element display value that fades in (flex, block etc.).
+// time = timeout before the fade-in executes (fade-out is always instant).
+// ele3, ele4... = excess elements that fade out.
+
+const setDisplay = (ele1, ele2, val, time, ele3, ele4, ele5, ele6) => {
+    let arr = [ele2, ele3, ele4, ele5, ele6];
+    ele1.style.display = val;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] !== undefined) {
+            arr[i].style.opacity = 0;
+        }
+    }
+
+    setTimeout(() => {
+        ele1.style.opacity = 1;
+        
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] !== undefined) {
+                arr[i].style.display = 'none';
+            } 
+        }
+    }, time);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
 
 window.onload = function() {
     const changeExpression = expression => {
@@ -61,10 +103,10 @@ window.onload = function() {
                 break;
         }
         aiko.style.backgroundPosition = x;
-    }
-
-    
+    }   
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
