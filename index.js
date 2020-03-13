@@ -1,7 +1,8 @@
-
 var gameState = 'menu';
 
 var playerName = '';
+
+let dialogue;
 
 quitYes.addEventListener('click', () => {
     window.close();
@@ -25,6 +26,12 @@ setName.addEventListener('click', () => {
         setDisplay(graphicsArea, blackScreen, 'flex', 5000);
         setDisplay(textArea, undefined, 'block', 2500);
     }, 2000);
+
+    setTimeout(() => {
+        renderText('z0');
+    }, 6000)
+
+    createDialogue();
 });
 
 btnExitCredits.addEventListener('click', () => {
@@ -108,7 +115,21 @@ window.onload = function() {
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
+const renderText = (txtDialogue) => {
+    const x = 'dialogue.';
+    let string = eval(x + txtDialogue);
 
-
-
-
+    var stringx = string.split("");
+    
+    var txt = "";
+    
+    const b = setInterval(() => {
+        if (txt.length != string.length) {
+            txt = txt + string[txt.length];
+            txtRender.innerHTML = txt;
+        } else {
+            clearInterval(b);
+        }
+        
+    }, 50);
+}

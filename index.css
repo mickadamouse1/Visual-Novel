@@ -1,5 +1,5 @@
 * {
-    font-family: "Raleway", sans-serif;
+    font-family: "Lato", sans-serif;
     -moz-user-select: none;
     user-select: none;
     margin: 0;
@@ -166,7 +166,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 0 19px 23px pink, 0 0 65px blue;
+    box-shadow: 0 0 39px pink, 0 0 79px blue;
     display: none;
     opacity: 0;
     transition: 1.5s ease;
