@@ -1,8 +1,10 @@
-var gameState = 'menu';
+let gameState = 'menu';
 
-var playerName = '';
+let playerName = '';
 
-let dialogue;
+let objDialogue;
+
+let dialogue = 'z0';
 
 quitYes.addEventListener('click', () => {
     window.close();
@@ -13,30 +15,40 @@ quitNo.addEventListener('click', () => {
 });
 
 setName.addEventListener('click', () => {
-    gameState = 'introduction';
-    playerName = chooseNameInput.value;
-    
-    graphicsArea.style.background = 'url(images/background/intro.jpg) center/contain no-repeat';
+    if (chooseNameInput.value) {
+        gameState = 'introduction';
+        playerName = chooseNameInput.value;
+        
+        graphicsArea.style.background = 'url(images/background/intro.jpg) center/contain no-repeat';
 
-    textArea.style.bottom = '20.9rem';
+        textArea.style.bottom = '20.9rem';
 
-    setDisplay(graphicsArea, chooseName, 'flex', 1500);
-    setTimeout(() => {
-        blackScreen.style.transition = '5s ease';
-        setDisplay(graphicsArea, blackScreen, 'flex', 5000);
-        setDisplay(textArea, undefined, 'block', 2500);
-    }, 2000);
+        setDisplay(graphicsArea, chooseName, 'flex', 1500);
+        setTimeout(() => {
+            blackScreen.style.transition = '5s ease';
+            setDisplay(graphicsArea, blackScreen, 'flex', 5000);
+            setDisplay(textArea, undefined, 'block', 2500);
+        }, 2000);
 
-    setTimeout(() => {
-        renderText('z0');
-    }, 6000)
+        setTimeout(() => {
+            renderText(dialogue);
+        }, 6000)
 
-    createDialogue();
+        createDialogue();
+    }
 });
 
 btnExitCredits.addEventListener('click', () => {
     setDisplay(choices, credits, 'flex', 175);
 });
+
+textArea.addEventListener('click', () => {
+    clearTextArea();
+});
+
+function clearTextArea() {
+    txtRender.innerHTML = "";
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -116,20 +128,30 @@ window.onload = function() {
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 const renderText = (txtDialogue) => {
-    const x = 'dialogue.';
+    const x = 'objDialogue.';
     let string = eval(x + txtDialogue);
 
     var stringx = string.split("");
     
     var txt = "";
+
+    let rendering = false;
     
     const b = setInterval(() => {
-        if (txt.length != string.length) {
-            txt = txt + string[txt.length];
-            txtRender.innerHTML = txt;
-        } else {
+        if (!rendering) {
+            rendering = true;
+        } else if (txtRender.innerHTML == "") {
+            rendering = false;
             clearInterval(b);
         }
-        
-    }, 50);
+
+        if (rendering) {
+            if (txt.length != string.length) {
+                txt = txt + string[txt.length];
+                txtRender.innerHTML = txt;
+            } else {
+                clearInterval(b);
+            }
+        } 
+    }, 25);
 }
