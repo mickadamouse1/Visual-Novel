@@ -77,9 +77,18 @@ body {
     outline: none;
 }
 
+#textBlocker {
+    width: 60rem;
+    height: 10rem;
+    position: absolute;
+    top: 17rem;
+    z-index: 100;
+    display: none;
+}
+
 #textArea {
     padding: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     font-weight: 500;
     z-index: 2;
     position: absolute;

@@ -6,6 +6,8 @@ let objDialogue;
 
 let dialogue = 'z0';
 
+////////////////////////////////////////////////////////
+
 quitYes.addEventListener('click', () => {
     window.close();
 });
@@ -13,6 +15,8 @@ quitYes.addEventListener('click', () => {
 quitNo.addEventListener('click', () => {
     setDisplay(choices, warning, 'flex', 150);
 });
+
+////////////////////////////////////////////////////////
 
 setName.addEventListener('click', () => {
     if (chooseNameInput.value) {
@@ -38,16 +42,56 @@ setName.addEventListener('click', () => {
     }
 });
 
+////////////////////////////////////////////////////////
+
 btnExitCredits.addEventListener('click', () => {
     setDisplay(choices, credits, 'flex', 175);
 });
 
+////////////////////////////////////////////////////////
+
 textArea.addEventListener('click', () => {
-    clearTextArea();
+    nextText();
+    if (dialogue == "z8") {
+        setDisplay(textBlocker, undefined, 'block', 25);
+        setTransition(blackScreen, '1s ease');
+        setDisplay(blackScreen, textArea, 'block', 250);
+        setTimeout(() => {
+            setBackground(graphicsArea, 'url(images/background/intro2.jpg) center/contain no-repeat');
+            setTransition(blackScreen, '2s ease');
+            setDisplay(graphicsArea, blackScreen, 'flex', 2000);
+            setDisplay(textArea, textBlocker, 'block', 2500);
+            setTimeout(() => {
+                dialogue = "z9";
+                renderText(dialogue);
+            }, 3000);
+        }, 1500);
+        
+    }   
 });
+
+function nextText() {
+    clearTextArea();
+    let arr = dialogue.match(/[a-z]+|[^a-z]+/gi);
+    let x = arr[1];
+    +x++;
+    arr[1] = x;
+    arr = arr.join("");
+    console.log(arr);
+    dialogue = arr;
+    renderText(dialogue);
+}
 
 function clearTextArea() {
     txtRender.innerHTML = "";
+}
+
+function setTransition(ele, val) {
+    ele.style.transition = val;
+}
+
+function setBackground(ele, val) {
+    ele.style.background = val;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////
