@@ -53,7 +53,7 @@ body {
     justify-content: center;
 }
 
-#choices {
+#groupChoices {
     position: absolute;
     height: 23rem;
     top: 19rem;
@@ -63,7 +63,7 @@ body {
     transition: .175s ease;
 }
 
-#choices button {
+.choice-Menu {
     font-size: 3rem;
     font-weight: 700;
     text-shadow: 0 1px 1px rgba(0,0,0,0.1);
@@ -71,17 +71,26 @@ body {
     width: 20rem;
     height: 5rem;
     background: pink;
-    border none;
     border-radius: 5rem;
     box-shadow: 0 0 5px 5px pink, 0 0 16px;
     outline: none;
 }
 
+.choice-InGame {
+    background: #171910;
+    color: #ffe3e3;
+    font-size: 1rem;
+    width: 26rem;
+    height: 7.5rem;
+    box-shadow: none;
+    border-radius: 1rem;
+}
+
 #textBlocker {
     width: 60rem;
-    height: 10rem;
+    height: 13rem;
     position: absolute;
-    top: 17rem;
+    top: 18rem;
     z-index: 100;
     display: none;
 }

@@ -10,9 +10,13 @@
             z6: "*Romance scene that was too cringy to include*",
             z7: "Ah... it's time to go.",
             z8: "",
-            z9: "Here we are. In the middle of nowhere in what looks like an abandoned WW2 train factory. No signs of life anywhere.",
-            z10: "After some walking around, I can see smoke in the distance. Maybe a mile or two away. Might aswell go check that out.",
-            
+            z9: "Here we are. In the middle of nowhere... ",
+            z10: "Rolling hills as far as the eye can see, yet not a single soul in sight...",
+            z11: "After some walking around, I can see smoke in the distance. Maybe a mile or two away. Might aswell go check that out.",
+            z12: "",
+            z13: "Ah! It's a village... All the way out here?",
+            z14: "It looks like quite a nice place, I'm not gonna lie.",
+            z15: "",
             a1: ""
         }
 

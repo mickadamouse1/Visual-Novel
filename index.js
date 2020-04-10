@@ -6,7 +6,8 @@ let objDialogue;
 
 let dialogue = 'z0';
 
-////////////////////////////////////////////////////////
+const choices = document.getElementById("groupChoices");
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 quitYes.addEventListener('click', () => {
     window.close();
@@ -16,7 +17,7 @@ quitNo.addEventListener('click', () => {
     setDisplay(choices, warning, 'flex', 150);
 });
 
-////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 setName.addEventListener('click', () => {
     if (chooseNameInput.value) {
@@ -39,52 +40,65 @@ setName.addEventListener('click', () => {
         }, 6000)
 
         createDialogue();
+        updateChoiceDesign();
     }
 });
 
-////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 btnExitCredits.addEventListener('click', () => {
     setDisplay(choices, credits, 'flex', 175);
 });
 
-////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 textArea.addEventListener('click', () => {
     nextText();
-    if (dialogue == "z8") {
-        setDisplay(textBlocker, undefined, 'block', 25);
-        setTransition(blackScreen, '1s ease');
-        setDisplay(blackScreen, textArea, 'block', 250);
-        setTimeout(() => {
-            setBackground(graphicsArea, 'url(images/background/intro2.jpg) center/contain no-repeat');
-            setTransition(blackScreen, '2s ease');
-            setDisplay(graphicsArea, blackScreen, 'flex', 2000);
-            setDisplay(textArea, textBlocker, 'block', 2500);
-            setTimeout(() => {
-                dialogue = "z9";
-                renderText(dialogue);
-            }, 3000);
-        }, 1500);
-        
-    }   
+
+    switch (dialogue) {
+        case "z8": 
+            transitionScene("z9", "url(images/background/intro2.jpg) center/contain no-repeat");
+            break;
+        case "z12":
+            transitionScene("z13", "url(images/background/townRoadDay.jpg) center/cover no-repeat");
+            break;
+        case "z15":
+            changeChoices("z1");
+            textArea.style.bottom = "2.9rem";
+            setDisplay(choices, undefined, "flex", 500);
+    }
 });
 
-function nextText() {
-    clearTextArea();
-    let arr = dialogue.match(/[a-z]+|[^a-z]+/gi);
-    let x = arr[1];
-    +x++;
-    arr[1] = x;
-    arr = arr.join("");
-    console.log(arr);
-    dialogue = arr;
-    renderText(dialogue);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function transitionScene(nextDialogue, sceneBackground) {
+    setDisplay(textBlocker, undefined, 'block', 25);    // disables next dialogue
+
+    setTransition(blackScreen, '1s ease');  // sets blackscreen transition
+    setDisplay(blackScreen, textArea, 'block', 250);    // hides textbox and fades in black screen
+
+    setTimeout(() => {  // execute after 3s
+        setBackground(graphicsArea, sceneBackground);   // changes background
+
+        setTransition(blackScreen, '2s ease');  // sets blackscreen transition
+        setDisplay(graphicsArea, blackScreen, 'flex', 2000);    // fades out blackscreen
+
+        setDisplay(textArea, textBlocker, 'block', 2500);   // enables next dialogue
+
+        setTimeout(() => { // execute after 3s (6s total)
+            dialogue = nextDialogue; // sets dialogue
+            renderText(dialogue); // renders dialogue^^
+        }, 3000);
+    }, 1500);
 }
 
-function clearTextArea() {
-    txtRender.innerHTML = "";
-}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// SET STYLES
 
 function setTransition(ele, val) {
     ele.style.transition = val;
@@ -171,11 +185,27 @@ window.onload = function() {
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
+// TEXT RENDERING
+
+function nextText() {
+    clearTextArea();
+    let arr = dialogue.match(/[a-z]+|[^a-z]+/gi);
+    let x = arr[1];
+    +x++;
+    arr[1] = x;
+    arr = arr.join("");
+    console.log(arr);
+    dialogue = arr;
+    renderText(dialogue);
+}
+
+function clearTextArea() {
+    txtRender.innerHTML = "";
+}
+
 const renderText = (txtDialogue) => {
     const x = 'objDialogue.';
     let string = eval(x + txtDialogue);
-
-    var stringx = string.split("");
     
     var txt = "";
 
@@ -198,4 +228,40 @@ const renderText = (txtDialogue) => {
             }
         } 
     }, 25);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// CHANGES THE CHOICE TEXT
+
+const catalogue = {
+    z1: ["Walk into the centre of town.", "Sneakily scout through the town while hidden."],
+    z2: ["Run away!", "Attack her!"]
+};
+
+function changeChoices(x) {
+    let key = eval("catalogue." + x);
+
+    let nodes = groupChoices.children;
+
+    for (let i = 0; i < nodes.length; i++) {
+        nodes[i].innerHTML = key[i];
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// UPDATE CHOICES DESIGN AFTER GAME START
+
+function updateChoiceDesign() {
+    let nodes = groupChoices.children;
+
+    for (let i = 0; i < nodes.length; i++) {
+        nodes[i].classList.remove("choice-Menu");
+        nodes[i].classList.add("choice-InGame");
+    }
+
+    nodes[2].style.display = "none";
+    
+    choices.style.top = "10rem";
 }
