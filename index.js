@@ -1,12 +1,17 @@
-let gameState = 'menu';
+let gameState = 'menu'; // ch1 = choice 1, ch2 = choice 2 etc.
 
 let playerName = '';
 
 let objDialogue;
 
-let dialogue = 'z0';
+window.dialogue = 'z0';
 
 const choices = document.getElementById("groupChoices");
+
+setInterval(() => {
+    console.log(dialogue);
+}, 500);
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 quitYes.addEventListener('click', () => {
@@ -30,14 +35,14 @@ setName.addEventListener('click', () => {
 
         setDisplay(graphicsArea, chooseName, 'flex', 1500);
         setTimeout(() => {
-            blackScreen.style.transition = '5s ease';
-            setDisplay(graphicsArea, blackScreen, 'flex', 5000);
-            setDisplay(textArea, undefined, 'block', 2500);
-        }, 2000);
+            blackScreen.style.transition = '3s ease';
+            setDisplay(graphicsArea, blackScreen, 'flex', 3000);
+            setDisplay(textArea, undefined, 'block', 1500);
+        }, 1750);
 
         setTimeout(() => {
             renderText(dialogue);
-        }, 6000)
+        }, 4000)
 
         createDialogue();
         updateChoiceDesign();
@@ -63,6 +68,7 @@ textArea.addEventListener('click', () => {
             transitionScene("z13", "url(images/background/townRoadDay.jpg) center/cover no-repeat");
             break;
         case "z15":
+            gameState = "ch1";
             changeChoices("z1");
             textArea.style.bottom = "2.9rem";
             setDisplay(choices, undefined, "flex", 500);
@@ -83,12 +89,12 @@ function transitionScene(nextDialogue, sceneBackground) {
         setTransition(blackScreen, '2s ease');  // sets blackscreen transition
         setDisplay(graphicsArea, blackScreen, 'flex', 2000);    // fades out blackscreen
 
-        setDisplay(textArea, textBlocker, 'block', 2500);   // enables next dialogue
+        setDisplay(textArea, textBlocker, 'block', 2000);   // enables next dialogue
 
         setTimeout(() => { // execute after 3s (6s total)
             dialogue = nextDialogue; // sets dialogue
             renderText(dialogue); // renders dialogue^^
-        }, 3000);
+        }, 2000);
     }, 1500);
 }
 
@@ -206,7 +212,6 @@ function clearTextArea() {
 const renderText = (txtDialogue) => {
     const x = 'objDialogue.';
     let string = eval(x + txtDialogue);
-    
     var txt = "";
 
     let rendering = false;
@@ -265,3 +270,11 @@ function updateChoiceDesign() {
     
     choices.style.top = "10rem";
 }
+
+btnLoveMeter.addEventListener("mouseover", () => {
+    loveMeter.style.opacity = "1";
+});
+
+btnLoveMeter.addEventListener("mouseout", () => {
+    loveMeter.style.opacity = "0";
+})

@@ -17,7 +17,13 @@
             z13: "Ah! It's a village... All the way out here?",
             z14: "It looks like quite a nice place, I'm not gonna lie.",
             z15: "",
-            a1: ""
+            a0: "I walk into the centre of town, doesn’t seem anyone is here… it's strange… and kinda creepy.",
+            a1: "Everything seems clean and well maintained. There's a soft warm atmosphere in the air here. It sort'a feels like home...",
+            a2: "After standing around for a couple of minutes, I notice a door pop open and a person come walking out.",
+            a3: "They don't seem to have noticed that I'm here...",
+            a4: "Person: Eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeek!!!",
+            a5: "Uh... Nevermind. They noticed me.",
+            a6: ""
         }
 
         return dialogue;
