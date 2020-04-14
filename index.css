@@ -60,7 +60,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    transition: .175s ease;
+    transition: .35s ease;
 }
 
 .choice-Menu {
@@ -84,6 +84,7 @@ body {
     height: 7.5rem;
     box-shadow: none;
     border-radius: 1rem;
+    padding: 2rem;
 }
 
 #textBlocker {
@@ -275,8 +276,8 @@ body {
     position: absolute;
     top: 1rem;
     left: 1rem;
-    /* display: none;
-    opacity: 0; */
+    display: none;
+    opacity: 0;
     transition: 1s ease;
     background: #e34e8d;
 }
@@ -292,11 +293,14 @@ body {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    opacity: 1;
+    opacity: 0;
     transition: .5s ease;
 }
 
 #loveMeter div {
+    font-size: 1.2rem;
+    color: #e34e8d;
+    text-align: center;
     background: #f9e3d8;
     height: 1.5rem;
     width: 1rem;
@@ -313,10 +317,23 @@ body {
     height: 50.2rem;
     position: absolute;
     bottom: -2rem;
-    left: 23%;
+    left: 33%;
 
     /* Animating Purposes */
     opacity: 0;
     display: none;
     transition: .175s ease;
+}
+
+#dragonAiko {
+    background: url("images/character/dragonAiko.png") no-repeat;
+    background-size: 34.1rem;
+    width: 34rem;
+    height: 54rem;
+    position: absolute;
+    right: 0;
+    bottom: -4rem;
+    display: none;
+    opacity: 0;
+    transition: .75s ease;
 }

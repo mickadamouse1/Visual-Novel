@@ -8,6 +8,8 @@ window.dialogue = 'z0';
 
 const choices = document.getElementById("groupChoices");
 
+const sceneTransitionSpeed = 1250;
+
 setInterval(() => {
     console.log(dialogue);
 }, 500);
@@ -60,24 +62,61 @@ btnExitCredits.addEventListener('click', () => {
 textArea.addEventListener('click', () => {
     nextText();
 
+    // Z
+
     switch (dialogue) {
         case "z8": 
-            transitionScene("z9", "url(images/background/intro2.jpg) center/contain no-repeat");
+            transitionScene("z9", "url(images/background/intro2.jpg) center/contain no-repeat", sceneTransitionSpeed);
             break;
         case "z12":
-            transitionScene("z13", "url(images/background/townRoadDay.jpg) center/cover no-repeat");
+            transitionScene("z13", "url(images/background/townRoadDay.jpg) center/cover no-repeat", sceneTransitionSpeed);
             break;
         case "z15":
+            setDisplay(btnLoveMeter, undefined, "flex", 500);
             gameState = "ch1";
             changeChoices("z1");
             textArea.style.bottom = "2.9rem";
             setDisplay(choices, undefined, "flex", 500);
     }
+
+
+    // A
+
+    switch (dialogue) {
+        case "a6":
+            transitionScene("a7", "url(images/background/townDay.jpg) center/cover no-repeat", sceneTransitionSpeed);
+            setTransition(aiko, ".75s ease");
+            setDisplay(aiko, undefined, "block", 2500);
+            break;
+        case "a8":
+            gameState = "ch2";
+            changeChoices("z2");
+            setDisplay(choices, undefined, "flex", 500);
+
+        case "c3":
+
+    }
+
+
+    // B
+
+    // GG
+
+    switch (dialogue) {
+        case "gg2":
+            setDisplay(blackScreen, textArea, "block", 250);
+            setTimeout(() => {
+                location.reload();
+            }, 5000);
+            break;
+    }
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function transitionScene(nextDialogue, sceneBackground) {
+function transitionScene(nextDialogue, sceneBackground, speed) {
+    let x = speed;
+
     setDisplay(textBlocker, undefined, 'block', 25);    // disables next dialogue
 
     setTransition(blackScreen, '1s ease');  // sets blackscreen transition
@@ -87,15 +126,15 @@ function transitionScene(nextDialogue, sceneBackground) {
         setBackground(graphicsArea, sceneBackground);   // changes background
 
         setTransition(blackScreen, '2s ease');  // sets blackscreen transition
-        setDisplay(graphicsArea, blackScreen, 'flex', 2000);    // fades out blackscreen
+        setDisplay(graphicsArea, blackScreen, 'flex', (x + 500));    // fades out blackscreen
 
-        setDisplay(textArea, textBlocker, 'block', 2000);   // enables next dialogue
+        setDisplay(textArea, textBlocker, 'block', (x + 500));   // enables next dialogue
 
         setTimeout(() => { // execute after 3s (6s total)
             dialogue = nextDialogue; // sets dialogue
             renderText(dialogue); // renders dialogue^^
-        }, 2000);
-    }, 1500);
+        }, (x + 500));
+    }, x);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -147,47 +186,45 @@ const setDisplay = (ele1, ele2, val, time, ele3, ele4, ele5, ele6) => {
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
-window.onload = function() {
-    const changeExpression = expression => {
-        let x;
-        switch(expression) {
-            case 'plain1': 
-                x = '3rem';
-                break;
-            case 'plain2':
-                x = '-20.95rem';
-                break;
-            case 'smile1':
-                x = '-44.85rem';
-                break;
-            case 'smile2':
-                x = '-68.75rem'
-                break;
-            case 'blink1':
-                x = '-92.65rem';
-                break;
-            case 'blink2':
-                x = '-116.6rem';
-                break;
-            case 'huff':
-                x = '-140.5rem';
-                break;
-            case 'angry1':
-                x = '-164.45rem';
-                break;
-            case 'angry2':
-                x = '-188.35rem';
-                break;
-            case 'cry1': 
-                x = '-212.25rem';
-                break;
-            case 'cry2':
-                x = '-236.2rem';
-                break;
-        }
-        aiko.style.backgroundPosition = x;
-    }   
-}
+ const changeExpression = expression => {
+    let x;
+    switch(expression) {
+        case 'plain1': 
+            x = '3rem';
+            break;
+        case 'plain2':
+            x = '-20.95rem';
+            break;
+        case 'smile1':
+            x = '-44.85rem';
+            break;
+        case 'smile2':
+            x = '-68.75rem'
+            break;
+        case 'blink1':
+            x = '-92.65rem';
+            break;
+        case 'blink2':
+            x = '-116.6rem';
+            break;
+        case 'huff':
+            x = '-140.5rem';
+            break;
+        case 'angry1':
+            x = '-164.45rem';
+            break;
+        case 'angry2':
+            x = '-188.35rem';
+            break;
+        case 'cry1': 
+            x = '-212.25rem';
+            break;
+        case 'cry2':
+            x = '-236.2rem';
+            break;
+    }
+    aiko.style.backgroundPosition = x;
+}   
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -237,25 +274,6 @@ const renderText = (txtDialogue) => {
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
-// CHANGES THE CHOICE TEXT
-
-const catalogue = {
-    z1: ["Walk into the centre of town.", "Sneakily scout through the town while hidden."],
-    z2: ["Run away!", "Attack her!"]
-};
-
-function changeChoices(x) {
-    let key = eval("catalogue." + x);
-
-    let nodes = groupChoices.children;
-
-    for (let i = 0; i < nodes.length; i++) {
-        nodes[i].innerHTML = key[i];
-    }
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////
-
 // UPDATE CHOICES DESIGN AFTER GAME START
 
 function updateChoiceDesign() {
@@ -271,6 +289,32 @@ function updateChoiceDesign() {
     choices.style.top = "10rem";
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// LOVE METER MECHANICS
+
+let love = 3;
+
+function updateLoveMeter() {
+    if (love <= 0) {
+
+    } else if (love >= 5) {
+
+    } else {
+        let nodes = loveMeter.children;
+    
+        for (let i = 0; i < nodes.length; i++) {
+            nodes[i].style.opacity = "0";
+        }
+    
+        for (let i = 0; i < love; i++) {
+            nodes[i].style.opacity = "1";
+        }
+    }
+}
+
+updateLoveMeter();
+
 btnLoveMeter.addEventListener("mouseover", () => {
     loveMeter.style.opacity = "1";
 });
@@ -278,3 +322,4 @@ btnLoveMeter.addEventListener("mouseover", () => {
 btnLoveMeter.addEventListener("mouseout", () => {
     loveMeter.style.opacity = "0";
 })
+
