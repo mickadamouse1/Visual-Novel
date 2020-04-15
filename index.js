@@ -29,7 +29,9 @@ quitNo.addEventListener('click', () => {
 setName.addEventListener('click', () => {
     if (chooseNameInput.value) {
         gameState = 'introduction';
+        
         playerName = chooseNameInput.value;
+        updateName();
         
         graphicsArea.style.background = 'url(images/background/intro.jpg) center/contain no-repeat';
 
@@ -60,6 +62,7 @@ btnExitCredits.addEventListener('click', () => {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 textArea.addEventListener('click', () => {
+    checkLoveMeter();
     nextText();
 
     // Z
@@ -76,7 +79,7 @@ textArea.addEventListener('click', () => {
             gameState = "ch1";
             changeChoices("z1");
             textArea.style.bottom = "2.9rem";
-            setDisplay(choices, undefined, "flex", 500);
+            showChoices();
     }
 
 
@@ -91,23 +94,60 @@ textArea.addEventListener('click', () => {
         case "a8":
             gameState = "ch2";
             changeChoices("z2");
-            setDisplay(choices, undefined, "flex", 500);
-
-        case "c3":
-
+            showChoices();
     }
 
 
     // B
 
+    switch (dialogue) {
+        case "b6":
+            love--;
+            changeExpression("huff");
+            setTransition(aiko, ".75s ease");
+            setDisplay(aiko, undefined, "block", 500);
+            break;
+
+        case "b9":
+            gameState = "ch2";
+            changeChoices("z2");
+            showChoices();
+    }
+
+    // D
+
+    switch (dialogue) {
+        case "d1":
+            gameState = "d1";
+            changeChoices("d1")
+            showChoices();
+            break;
+
+        case "d3":
+            gameState = "d2";
+            changeChoices("d2");
+            showChoices();
+            break;
+    }
+
     // GG
 
     switch (dialogue) {
+        case "gg1": 
+            setTransition(aiko, "0s");
+            changeExpression("angry1");
+            break;
+
         case "gg2":
+            setTransition(aiko, ".75s ease");
+            setDisplay(dragonAiko, aiko, "block", 500);
+            break;
+        
+        case "gg4":
             setDisplay(blackScreen, textArea, "block", 250);
             setTimeout(() => {
                 location.reload();
-            }, 5000);
+            }, 2000);
             break;
     }
 });
@@ -139,7 +179,15 @@ function transitionScene(nextDialogue, sceneBackground, speed) {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// DISPLAYS CHOICES
 
+function hideChoices() {
+    setDisplay(textArea, choices, "block", 250);
+}
+
+function showChoices() {
+    setDisplay(choices, textArea, "flex", 500);
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -186,7 +234,7 @@ const setDisplay = (ele1, ele2, val, time, ele3, ele4, ele5, ele6) => {
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
- const changeExpression = expression => {
+function changeExpression(expression) {
     let x;
     switch(expression) {
         case 'plain1': 
@@ -272,6 +320,11 @@ const renderText = (txtDialogue) => {
     }, 25);
 }
 
+function updateDialogue(val) {
+    dialogue = val;
+    renderText(dialogue);
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 // UPDATE CHOICES DESIGN AFTER GAME START
@@ -295,21 +348,29 @@ function updateChoiceDesign() {
 
 let love = 3;
 
+let gameOver = false;
+
+function checkLoveMeter() {
+    if (!gameOver) {
+        if (love <= 0) {
+            dialogue = "gg0";
+            gameOver = true;
+        } else if (love >= 5) {
+    
+        } 
+    }
+}
+
 function updateLoveMeter() {
-    if (love <= 0) {
-
-    } else if (love >= 5) {
-
-    } else {
-        let nodes = loveMeter.children;
+    console.log(`Current Love: ${love}`);
+    let nodes = loveMeter.children;
     
-        for (let i = 0; i < nodes.length; i++) {
-            nodes[i].style.opacity = "0";
-        }
+    for (let i = 0; i < nodes.length; i++) {
+        nodes[i].style.opacity = "0";
+    }
     
-        for (let i = 0; i < love; i++) {
-            nodes[i].style.opacity = "1";
-        }
+    for (let i = 0; i < love; i++) {
+        nodes[i].style.opacity = "1";
     }
 }
 
@@ -323,3 +384,17 @@ btnLoveMeter.addEventListener("mouseout", () => {
     loveMeter.style.opacity = "0";
 })
 
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+// NAME UPDATE
+
+function updateName() {
+    let arr = playerName.split(" ");
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].split("");
+        arr[i][0] = arr[i][0].toUpperCase();
+        arr[i] = arr[i].join("");
+        playerName = arr.join(" ");
+    }
+    console.log(playerName);
+}

@@ -63,6 +63,10 @@ body {
     transition: .35s ease;
 }
 
+#groupChoices button::-moz-focus-inner {
+    border: 0;
+}
+
 .choice-Menu {
     font-size: 3rem;
     font-weight: 700;
@@ -215,6 +219,10 @@ body {
     border: none;
     box-shadow: 0 1px 3px rgba(0,0,0,0.25);
     outline: none;
+}
+
+#chooseName button::-moz-focus-inner {
+    border: 0;
 }
 
 #credits {

@@ -1,4 +1,3 @@
-
     const createDialogue = () => {
         objDialogue = {
             z0: (`The name's detective ${playerName}. Only two days ago I was contacted by the head honcho of the united nations' secret services.`),
@@ -28,20 +27,34 @@
             a7: "Person: Wh-wh-who are you?",
             a8: "",
 
+            b0: "Empty, empty and even more empty...",
+            b1: "Something really doesn't feel right here...",
+            b2: "I can sense something is off, but I'm not sure what is it.",
+            b3: "Am I being watched... no, somethings coming... where from... I can sense it.",
+            b4: "???: Behind you.",
+            b5: "What the?!",
+            b6: "Wh-who...?",
+            b7: "???: Do you want to explain what you're doing sneaking around here?",
+            b8: "Errrm...",
+            b9: "",
+
+
             c0: "Person: Unbelieveable! We never get travellers here, not after what happened all those years ago...",
             c1: "Eh? What happened, might I ask?",
             c2: "If you really want to know, I'll tell you. But it's quite the depressing story...",
             c3: "",
 
-            ab0: "Person: what...?",
-
-            ac0: "Person: Seriously. Stop it. Who are you?",
-
-            ad0: "Person: I've had enough of this!",
+            d0: "Person: what...?",
+            d1: "",
+            d2: "Person: Seriously. Stop it. Who are you?",
+            d3: "",
+            d4: "Person: I'm not going to ask again.",
             
-            gg0: "It seems you were never to be trusted, mortal. You will not be missed.",
-            gg1: "GAME OVER",
-            gg2: ""
+            gg0: "",
+            gg1: "I've had enough of this!",
+            gg2: "It seems you never should have come to this place, mortal. Farewell, you will not be forgotten.",
+            gg3: "GAME OVER",
+            gg4: ""
         }
 
         return dialogue;

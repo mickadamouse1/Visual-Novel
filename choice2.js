@@ -1,14 +1,34 @@
 
 
 choice2.addEventListener('click', () => {
-    switch (gameState) {
-        case "menu":
-            setDisplay(credits, choices, "flex", 175);
-            break;
-        case "ch1":
-            setDisplay(textArea, choices, "block", 250);
-            transitionScene("gg0", "url(images/background/gameOver.jpg) center/cover no-repeat", sceneTransitionSpeed);
-            setDisplay(dragonAiko, undefined, "block", 2500);
-            break;
+    checkLoveMeter();
+    if (!gameOver) {
+        switch (gameState) {
+            case "menu":
+                setDisplay(credits, choices, "flex", 175);
+                break;
+    
+            case "ch1":
+                hideChoices();
+                transitionScene("b0", "url(images/background/townAlley.png) center/cover no-repeat", sceneTransitionSpeed);
+                break;
+    
+            case "ch2":
+                love--;
+                updateLoveMeter();
+                hideChoices();
+                updateDialogue("d0")
+                break;
+    
+            case "d1":
+                hideChoices();
+                updateDialogue("c0");
+                break;
+    
+            case "d2":
+                hideChoices();
+                updateDialogue("c0");
+                break;
+        }
     }
 });
