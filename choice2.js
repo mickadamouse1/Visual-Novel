@@ -14,10 +14,9 @@ choice2.addEventListener('click', () => {
                 break;
     
             case "ch2":
-                love--;
-                updateLoveMeter();
                 hideChoices();
-                updateDialogue("d0")
+                updateDialogue("d0");
+                reduceLove();
                 break;
     
             case "d1":

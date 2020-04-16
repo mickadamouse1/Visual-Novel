@@ -62,7 +62,6 @@ btnExitCredits.addEventListener('click', () => {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 textArea.addEventListener('click', () => {
-    checkLoveMeter();
     nextText();
 
     // Z
@@ -133,17 +132,12 @@ textArea.addEventListener('click', () => {
     // GG
 
     switch (dialogue) {
-        case "gg1": 
-            setTransition(aiko, "0s");
-            changeExpression("angry1");
-            break;
-
-        case "gg2":
+        case "gg1":
             setTransition(aiko, ".75s ease");
             setDisplay(dragonAiko, aiko, "block", 500);
             break;
         
-        case "gg4":
+        case "gg3":
             setDisplay(blackScreen, textArea, "block", 250);
             setTimeout(() => {
                 location.reload();
@@ -321,8 +315,13 @@ const renderText = (txtDialogue) => {
 }
 
 function updateDialogue(val) {
-    dialogue = val;
-    renderText(dialogue);
+    if (love <= 0 || love >= 5) {
+        checkLoveMeter();
+    } else {
+        dialogue = val;
+        renderText(dialogue);
+    }
+    
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -354,11 +353,29 @@ function checkLoveMeter() {
     if (!gameOver) {
         if (love <= 0) {
             dialogue = "gg0";
+            renderText(dialogue);
             gameOver = true;
         } else if (love >= 5) {
     
         } 
     }
+}
+
+function reduceLove() {
+    love--;
+    updateLoveMeter();
+
+    setTransition(aiko, "0s");
+    if (love == 0) {
+        changeExpression("angry1");
+    } else {
+        changeExpression("huff");
+    }
+}
+
+function addLove() {
+    love++;
+    updateLoveMeter();
 }
 
 function updateLoveMeter() {
@@ -372,6 +389,8 @@ function updateLoveMeter() {
     for (let i = 0; i < love; i++) {
         nodes[i].style.opacity = "1";
     }
+
+    checkLoveMeter();
 }
 
 updateLoveMeter();

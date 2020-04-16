@@ -50,11 +50,10 @@
             d3: "",
             d4: "Person: I'm not going to ask again.",
             
-            gg0: "",
-            gg1: "I've had enough of this!",
-            gg2: "It seems you never should have come to this place, mortal. Farewell, you will not be forgotten.",
-            gg3: "GAME OVER",
-            gg4: ""
+            gg0: "I've had enough of this!",
+            gg1: "It seems you never should have come to this place, mortal. Farewell, you will be forgotten.",
+            gg2: "GAME OVER",
+            gg3: ""
         }
 
         return dialogue;
