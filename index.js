@@ -87,7 +87,6 @@ textArea.addEventListener('click', () => {
     switch (dialogue) {
         case "a6":
             transitionScene("a7", "url(images/background/townDay.jpg) center/cover no-repeat", sceneTransitionSpeed);
-            setTransition(aiko, ".75s ease");
             setDisplay(aiko, undefined, "block", 2500);
             break;
         case "a8":
@@ -101,9 +100,7 @@ textArea.addEventListener('click', () => {
 
     switch (dialogue) {
         case "b6":
-            love--;
-            changeExpression("huff");
-            setTransition(aiko, ".75s ease");
+            reduceLove();
             setDisplay(aiko, undefined, "block", 500);
             break;
 
@@ -133,7 +130,6 @@ textArea.addEventListener('click', () => {
 
     switch (dialogue) {
         case "gg1":
-            setTransition(aiko, ".75s ease");
             setDisplay(dragonAiko, aiko, "block", 500);
             break;
         
@@ -205,7 +201,7 @@ function setBackground(ele, val) {
 // time = timeout before the fade-in executes (fade-out is always instant).
 // ele3, ele4... = excess elements that fade out.
 
-const setDisplay = (ele1, ele2, val, time, ele3, ele4, ele5, ele6) => {
+function setDisplay(ele1, ele2, val, time, ele3, ele4, ele5, ele6) {
     let arr = [ele2, ele3, ele4, ele5, ele6];
     ele1.style.display = val;
 
@@ -229,6 +225,7 @@ const setDisplay = (ele1, ele2, val, time, ele3, ele4, ele5, ele6) => {
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 function changeExpression(expression) {
+    setTransition(aiko, "0s");
     let x;
     switch(expression) {
         case 'plain1': 
@@ -266,6 +263,10 @@ function changeExpression(expression) {
             break;
     }
     aiko.style.backgroundPosition = x;
+    setTimeout(() => {
+        setTransition(aiko, ".75s ease");
+    }, 500)
+    
 }   
 
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -279,7 +280,6 @@ function nextText() {
     +x++;
     arr[1] = x;
     arr = arr.join("");
-    console.log(arr);
     dialogue = arr;
     renderText(dialogue);
 }
@@ -365,7 +365,6 @@ function reduceLove() {
     love--;
     updateLoveMeter();
 
-    setTransition(aiko, "0s");
     if (love == 0) {
         changeExpression("angry1");
     } else {
@@ -415,5 +414,4 @@ function updateName() {
         arr[i] = arr[i].join("");
         playerName = arr.join(" ");
     }
-    console.log(playerName);
 }

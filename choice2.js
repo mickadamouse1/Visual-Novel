@@ -22,11 +22,13 @@ choice2.addEventListener('click', () => {
             case "d1":
                 hideChoices();
                 updateDialogue("c0");
+                changeExpression("smile1");
                 break;
     
             case "d2":
                 hideChoices();
                 updateDialogue("c0");
+                changeExpression("smile1");
                 break;
         }
     }

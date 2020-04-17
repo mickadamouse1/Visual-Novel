@@ -1,5 +1,6 @@
     const createDialogue = () => {
         objDialogue = {
+            // intro dialogue
             z0: (`The name's detective ${playerName}. Only two days ago I was contacted by the head honcho of the united nations' secret services.`),
             z1: "He sat me down and started talking about some absolute jibberish. Sayin' there's some super secret ancient relic that has magical powers.. blah blah blah...",
             z2: "I'm supposed to travel 6,000 fricken miles across the planet to some small-time village and investigate a chick who lives there.",
@@ -17,16 +18,18 @@
             z14: "It looks like quite a nice place, I'm not gonna lie.",
             z15: "",
 
+            // Walks into the centre of town dialogue
             a0: "I walk into the centre of town, doesn’t seem anyone is here… it's strange… and kinda creepy.",
             a1: "Everything seems clean and well maintained. There's a soft warm atmosphere in the air here. It sort'a feels like home...",
             a2: "After standing around for a couple of minutes, I notice a door pop open and a person come walking out.",
             a3: "They don't seem to have noticed that I'm here...",
-            a4: "Person: Eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeek!!!",
+            a4: "???: Eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeek!!!",
             a5: "Uh... Nevermind. They noticed me.",
             a6: "",
-            a7: "Person: Wh-wh-who are you?",
+            a7: "???: Wh-wh-who are you?",
             a8: "",
 
+            // Back alley dialogue
             b0: "Empty, empty and even more empty...",
             b1: "Something really doesn't feel right here...",
             b2: "I can sense something is off, but I'm not sure what is it.",
@@ -38,17 +41,17 @@
             b8: "Errrm...",
             b9: "",
 
-
-            c0: "Person: Unbelieveable! We never get travellers here, not after what happened all those years ago...",
+            // pretends to be a traveller dialogue
+            c0: "???: Unbelieveable! We never get travellers here, not after what happened all those years ago...",
             c1: "Eh? What happened, might I ask?",
-            c2: "If you really want to know, I'll tell you. But it's quite the depressing story...",
+            c2: "???: If you really want to know, I'll tell you. But it's quite the depressing story...",
             c3: "",
 
-            d0: "Person: what...?",
+            d0: "???: what...?",
             d1: "",
-            d2: "Person: Seriously. Stop it. Who are you?",
+            d2: "???: Seriously. Stop it. Who are you?",
             d3: "",
-            d4: "Person: I'm not going to ask again.",
+            d4: "???: I'm not going to ask again.",
             
             gg0: "I've had enough of this!",
             gg1: "It seems you never should have come to this place, mortal. Farewell, you will be forgotten.",

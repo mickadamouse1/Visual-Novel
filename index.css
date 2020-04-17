@@ -330,7 +330,7 @@ body {
     /* Animating Purposes */
     opacity: 0;
     display: none;
-    transition: .175s ease;
+    transition: .75s ease;
 }
 
 #dragonAiko {

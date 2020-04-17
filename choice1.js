@@ -11,10 +11,9 @@ choice1.addEventListener("click", () => {
             break;
             
         case "ch2":
-            setTransition(aiko, "0s");
-            changeExpression("smile1");
             hideChoices();
             updateDialogue("c0");
+            changeExpression("smile1");
             break;
     
         case "d1":
