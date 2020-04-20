@@ -4,7 +4,7 @@ let playerName = '';
 
 let objDialogue;
 
-window.dialogue = 'z0';
+let dialogue = 'z0';
 
 const choices = document.getElementById("groupChoices");
 
@@ -26,32 +26,52 @@ quitNo.addEventListener('click', () => {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-setName.addEventListener('click', () => {
+btnContinue.addEventListener('click', () => {
     if (chooseNameInput.value) {
         gameState = 'introduction';
         
         playerName = chooseNameInput.value;
         updateName();
         
-        graphicsArea.style.background = 'url(images/background/intro.jpg) center/contain no-repeat';
-
-        textArea.style.bottom = '20.9rem';
-
-        setDisplay(graphicsArea, chooseName, 'flex', 1500);
-        setTimeout(() => {
-            blackScreen.style.transition = '3s ease';
-            setDisplay(graphicsArea, blackScreen, 'flex', 3000);
-            setDisplay(textArea, undefined, 'block', 1500);
-        }, 1750);
-
-        setTimeout(() => {
-            renderText(dialogue);
-        }, 4000)
+        hideCreationScreen('url(images/background/intro.jpg) center/contain no-repeat');
 
         createDialogue();
         updateChoiceDesign();
     }
 });
+
+btnSkipIntro.addEventListener("click", () => {
+    if (chooseNameInput.value) {
+        gameState = 'introduction';
+
+        dialogue = "z13";
+
+        playerName = chooseNameInput.value;
+        updateName();
+
+        hideCreationScreen('url(images/background/townRoadDay.jpg) center/cover no-repeat');
+
+        createDialogue();
+        updateChoiceDesign();
+    }
+});
+
+function hideCreationScreen(nextBackground) {
+    graphicsArea.style.background = nextBackground;
+
+    textArea.style.bottom = '20.9rem';
+
+    setDisplay(graphicsArea, chooseName, 'flex', 1500);
+    setTimeout(() => {
+        blackScreen.style.transition = '3s ease';
+        setDisplay(graphicsArea, blackScreen, 'flex', 3000);
+        setDisplay(textArea, undefined, 'block', 1500);
+    }, 1750);
+
+    setTimeout(() => {
+        renderText(dialogue);
+    }, 4000);
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -75,8 +95,7 @@ textArea.addEventListener('click', () => {
             break;
         case "z15":
             setDisplay(btnLoveMeter, undefined, "flex", 500);
-            gameState = "ch1";
-            changeChoices("z1");
+            changeChoices("a1");
             textArea.style.bottom = "2.9rem";
             showChoices();
     }
@@ -90,8 +109,7 @@ textArea.addEventListener('click', () => {
             setDisplay(aiko, undefined, "block", 2500);
             break;
         case "a8":
-            gameState = "ch2";
-            changeChoices("z2");
+            changeChoices("b1");
             showChoices();
     }
 
@@ -105,8 +123,15 @@ textArea.addEventListener('click', () => {
             break;
 
         case "b9":
-            gameState = "ch2";
-            changeChoices("z2");
+            changeChoices("b1");
+            showChoices();
+    }
+
+    // C
+
+    switch (dialogue) {
+        case "c3":
+            changeChoices("c1");
             showChoices();
     }
 
@@ -114,17 +139,26 @@ textArea.addEventListener('click', () => {
 
     switch (dialogue) {
         case "d1":
-            gameState = "d1";
-            changeChoices("d1")
+            changeChoices("b2");
             showChoices();
             break;
 
         case "d3":
-            gameState = "d2";
-            changeChoices("d2");
+            changeChoices("b3");
             showChoices();
             break;
     }
+
+
+    // E
+
+    switch (dialogue) {
+        case "e12":
+            changeChoices("c2");
+            showChoices();
+            break;
+    }
+
 
     // GG
 
@@ -177,6 +211,19 @@ function hideChoices() {
 
 function showChoices() {
     setDisplay(choices, textArea, "flex", 500);
+}
+
+// CHANGES CHOICES
+
+function changeChoices(x) {
+    gameState = x;
+    let key = eval("catalogue." + x);
+
+    let nodes = groupChoices.children;
+
+    for (let i = 0; i < nodes.length; i++) {
+        nodes[i].innerHTML = key[i];
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////

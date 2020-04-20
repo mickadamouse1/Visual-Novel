@@ -5,27 +5,38 @@ choice1.addEventListener("click", () => {
             setDisplay(chooseName, undefined, "flex", 1500);
             break;
             
-        case "ch1":
+        case "a1":
             hideChoices();
             transitionScene("a0", "url(images/background/townDay.jpg) center/cover no-repeat", sceneTransitionSpeed);
             break;
             
-        case "ch2":
+        case "b1":
             hideChoices();
             updateDialogue("c0");
             changeExpression("smile1");
             break;
     
-        case "d1":
+        case "b2":
             reduceLove();
             hideChoices();
             updateDialogue("d2");
             break;
             
-        case "d2":
+        case "b3":
             reduceLove();
             hideChoices();
             updateDialogue("d4");
+            break;
+
+        case "c1":
+            reduceLove();
+            hideChoices();
+            updateDialogue("f0");
+            break;
+
+        case "c2":
+            hideChoices();
+            updateDialogue("ea0");
             break;
         }
     }
