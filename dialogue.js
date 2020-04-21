@@ -73,7 +73,13 @@
 
 
             // second half of story
-            ea0: "well this happened blah blah blah",
+            ea0: "???: I walked into the streets only to find the bodies of all my friends and family layed out, covered in blood and bullet holes...",
+            ea1: "???: I remember how my vision became more and more blurry as the tears filled my eyes...",
+            ea2: "???: I checked every heartbeat and every building for anyone... anyone at all... I just needed someone to say something.",
+            ea3: "???: But it was already too late, those strangers took everything from me!",
+            ea4: "???: W-wh-what am I supposed to do to avenge those who were mercilessly murdered..?",
+            ea5: "???: Someone has to pay for what happened here! If only I could... If only I could find out who they were.",
+            ea6: "???: I would travel to the ends of the planet to find them and take everything from them, as they did to me.",
 
 
             // declines hearing her story
@@ -81,9 +87,27 @@
             f1: "",
 
             // declines to hear the second half of the story
-            fa0: "how dare you",
+            fa0: "???: H-h-how dare you?!",
+            fa1: "Woah, okay. Calm down, I didn't mean to-",
+            fa2: "???: Don't you dare tell me to calm down, you don't know what I've been through!",
+            fa3: "Look, I'm sure you've got your problems, but I'm a busy man.",
+            fa4: "???: My own problems? MY OWN PROBLEMS?!",
+            fa5: "",
+            fa6: "Yeah, your own problems. Wait. No. That sounds bad. I-I mean-",
+            fa7: "???: You need to leave.",
+            fa8: "Wait, wait, wait! Look, I've been travelling for days and I haven't had a chance to rest.",
+            fa9: "Could you imagine trying to listen to a really intense story *cough* tale! after such a long journey?",
+            fa10: "I lost my wife recently too, we were baking in the bakery that we own and she fell into the pizza cooker",
+            fa11: "???: Wh-what...?",
+            fa12: "*I begin to fake cry*",
+            fa13: "She- she was my world, my everything, and now she's gone...",
+            fa14: "*I cover my face to hide my slight grin*",
+            fa15: "???: Eh.. eh, it's okay.. eh- I didn't mean to- ah- I'm sorry...",
+            fa16: "No! I'm sorry! I shouldn't have used my words so lightly. I would love to hear your story. Just not right now, okay?",
+            fa17: "???: It's okay, I shouldn't allow myself to get so angry so easily...",
+            fa18: "Anyway... erm... hm...",
 
-            g0: "???: ",
+            g0: "Aiko: My name is Aiko, it is a pleasure to have you here. I want you to feel welcomed here at Shilo Village.",
 
 
             // Game over dialogue (gg = Good Game; a common online gaming term used when a game is finished)

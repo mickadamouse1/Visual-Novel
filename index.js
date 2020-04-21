@@ -157,6 +157,23 @@ textArea.addEventListener('click', () => {
             changeChoices("c2");
             showChoices();
             break;
+
+        case "ea3":
+            changeExpression("cry2");
+            break;
+    }
+
+
+    // F
+
+    switch (dialogue) {
+        case "fa4":
+            changeExpression("angry2");
+            break;
+        case "fa5":
+            reduceLove(false);
+            if (love > 0) nextText();
+            break;
     }
 
 
@@ -312,9 +329,39 @@ function changeExpression(expression) {
     aiko.style.backgroundPosition = x;
     setTimeout(() => {
         setTransition(aiko, ".75s ease");
-    }, 500)
-    
+    }, 500)    
 }   
+
+function renderNextExpression(isHappy) {
+    if (isHappy) {
+        switch (love) {
+            case 1:
+            case 2: 
+                changeExpression("blink1");
+                break;
+            case 3: 
+                changeExpression("smile1")
+                break;
+            case 4:
+            case 5: 
+                changeExpression("smile2")
+                break;
+        }
+    }  else {
+        switch (love) {
+            case 0:
+            case 1:
+                changeExpression("angry1");
+                break;
+            case 2:
+            case 3:
+            case 4: 
+            case 5:
+                changeExpression("huff");
+                break;
+        }
+    }
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -400,6 +447,7 @@ function checkLoveMeter() {
     if (!gameOver) {
         if (love <= 0) {
             dialogue = "gg0";
+            clearTextArea();
             renderText(dialogue);
             gameOver = true;
         } else if (love >= 5) {
@@ -408,20 +456,22 @@ function checkLoveMeter() {
     }
 }
 
-function reduceLove() {
+function reduceLove(renderExpression) {
     love--;
     updateLoveMeter();
 
-    if (love == 0) {
-        changeExpression("angry1");
-    } else {
-        changeExpression("huff");
+    if (renderExpression) {
+        renderNextExpression(false);
     }
 }
 
-function addLove() {
+function addLove(renderExpression) {
     love++;
     updateLoveMeter();
+
+    if (renderExpression) {
+        renderNextExpression(true);
+    }
 }
 
 function updateLoveMeter() {

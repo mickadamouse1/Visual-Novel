@@ -13,28 +13,30 @@ choice1.addEventListener("click", () => {
         case "b1":
             hideChoices();
             updateDialogue("c0");
-            changeExpression("smile1");
+            renderNextExpression(true);
             break;
     
         case "b2":
-            reduceLove();
+            reduceLove(true);
             hideChoices();
             updateDialogue("d2");
             break;
             
         case "b3":
-            reduceLove();
+            reduceLove(true);
             hideChoices();
             updateDialogue("d4");
             break;
 
         case "c1":
-            reduceLove();
+            reduceLove(true);
             hideChoices();
             updateDialogue("f0");
             break;
 
         case "c2":
+            addLove(false);
+            changeExpression("cry1");
             hideChoices();
             updateDialogue("ea0");
             break;
