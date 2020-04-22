@@ -40,6 +40,12 @@ choice1.addEventListener("click", () => {
             hideChoices();
             updateDialogue("ea0");
             break;
+        
+        case "c3":
+            changeExpression("huff");
+            hideChoices();
+            updateDialogue("ed0");
+            break;
         }
     }
 );

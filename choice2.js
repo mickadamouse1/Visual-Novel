@@ -40,7 +40,14 @@ choice2.addEventListener('click', () => {
             case "c2":
                 reduceLove(true);
                 hideChoices();
-                updateDialogue("fa0");
+                updateDialogue("eb0");
+                break;
+
+            case "c3":
+                // addLove(false);
+                changeExpression("plain2");
+                hideChoices();
+                updateDialogue("ec0");
                 break;
         }
     }

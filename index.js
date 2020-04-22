@@ -84,9 +84,14 @@ btnExitCredits.addEventListener('click', () => {
 textArea.addEventListener('click', () => {
     nextText();
 
-    // Z
+    
 
     switch (dialogue) {
+
+        /////////////////////////////////////
+        /////////////     Z     /////////////
+        /////////////////////////////////////
+
         case "z8": 
             transitionScene("z9", "url(images/background/intro2.jpg) center/contain no-repeat", sceneTransitionSpeed);
             break;
@@ -98,12 +103,12 @@ textArea.addEventListener('click', () => {
             changeChoices("a1");
             textArea.style.bottom = "2.9rem";
             showChoices();
-    }
+            break;
 
+        /////////////////////////////////////
+        /////////////     A     /////////////
+        /////////////////////////////////////
 
-    // A
-
-    switch (dialogue) {
         case "a6":
             transitionScene("a7", "url(images/background/townDay.jpg) center/cover no-repeat", sceneTransitionSpeed);
             setDisplay(aiko, undefined, "block", 2500);
@@ -111,12 +116,12 @@ textArea.addEventListener('click', () => {
         case "a8":
             changeChoices("b1");
             showChoices();
-    }
+            break;
 
+        /////////////////////////////////////
+        /////////////     B     /////////////
+        /////////////////////////////////////
 
-    // B
-
-    switch (dialogue) {
         case "b6":
             reduceLove();
             setDisplay(aiko, undefined, "block", 500);
@@ -125,19 +130,21 @@ textArea.addEventListener('click', () => {
         case "b9":
             changeChoices("b1");
             showChoices();
-    }
+            break;
 
-    // C
+        /////////////////////////////////////
+        /////////////     C     /////////////
+        /////////////////////////////////////
 
-    switch (dialogue) {
         case "c3":
             changeChoices("c1");
             showChoices();
-    }
+            break;
 
-    // D
+        /////////////////////////////////////
+        /////////////     D     /////////////
+        /////////////////////////////////////
 
-    switch (dialogue) {
         case "d1":
             changeChoices("b2");
             showChoices();
@@ -147,39 +154,73 @@ textArea.addEventListener('click', () => {
             changeChoices("b3");
             showChoices();
             break;
-    }
 
+        /////////////////////////////////////
+        /////////////     E     /////////////
+        /////////////////////////////////////
 
-    // E
-
-    switch (dialogue) {
         case "e12":
             changeChoices("c2");
             showChoices();
             break;
 
+        ///////////////////////////////////   EA
+
         case "ea3":
             changeExpression("cry2");
             break;
-    }
+        
+        case "ea8":
+            changeChoices("c3");
+            showChoices();
+            break;
 
+        ///////////////////////////////////   EB
 
-    // F
-
-    switch (dialogue) {
-        case "fa4":
+        case "eb4":
             changeExpression("angry2");
             break;
-        case "fa5":
+
+        case "eb5":
             reduceLove(false);
             if (love > 0) nextText();
             break;
-    }
 
+        case "eb15":
+            changeExpression("plain2");
+            break;
 
-    // GG
+        case "eb20":
+            renderText("g0");
+            break;
 
-    switch (dialogue) {
+        ///////////////////////////////////   EC
+
+        case "ec5":
+            renderText("g0");
+            break;
+
+        ///////////////////////////////////   ED
+
+        case "ed12":
+            changeExpression("blink2");
+            break;
+
+        case "ed15":
+            setDisplay(dragonAiko, aiko, "block", 500);
+            break;
+        
+        case "ed25":
+            setDisplay(blackScreen, textArea, "block", 250);
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
+            break;
+
+        ///////////////////////////////////////
+        /////////////     GG     /////////////
+        /////////////////////////////////////
+    
         case "gg1":
             setDisplay(dragonAiko, aiko, "block", 500);
             break;
@@ -383,6 +424,7 @@ function clearTextArea() {
 }
 
 const renderText = (txtDialogue) => {
+    dialogue = txtDialogue;
     const x = 'objDialogue.';
     let string = eval(x + txtDialogue);
     var txt = "";
