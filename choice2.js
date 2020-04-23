@@ -32,7 +32,7 @@ choice2.addEventListener('click', () => {
                 break;
 
             case "c1":
-                addLove(true);
+                changeExpression("blink1");
                 hideChoices();
                 updateDialogue("e0");
                 break;
@@ -44,7 +44,7 @@ choice2.addEventListener('click', () => {
                 break;
 
             case "c3":
-                // addLove(false);
+                addLove(false);
                 changeExpression("plain2");
                 hideChoices();
                 updateDialogue("ec0");

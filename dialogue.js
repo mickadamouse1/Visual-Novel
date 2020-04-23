@@ -18,7 +18,7 @@
             z14: "It looks like quite a nice place, I'm not gonna lie.",
             z15: "",
 
-            // Walks into the centre of town dialogue
+            // Walks into the centre of town dialogue (GOOD)
             a0: "I walk into the centre of town, doesn’t seem anyone is here… it's strange… and kinda creepy.",
             a1: "Everything seems clean and well maintained. There's a soft warm atmosphere in the air here. It sort'a feels like home...",
             a2: "After standing around for a couple of minutes, I notice a door pop open and a person come walking out.",
@@ -29,7 +29,7 @@
             a7: "???: Wh-wh-who are you?",
             a8: "",
 
-            // Back alley dialogue
+            // Back alley dialogue (BAD)
             b0: "Empty, empty and even more empty...",
             b1: "Something really doesn't feel right here...",
             b2: "I can sense something is off, but I'm not sure what is it.",
@@ -41,14 +41,14 @@
             b8: "Errrm...",
             b9: "",
 
-            // pretends to be a traveller dialogue
+            // pretends to be a traveller dialogue (GOOD)
             c0: "???: Unbelieveable! We never get travellers here, not after what happened all those years ago...",
             c1: "Eh? What happened, might I ask?",
             c2: "???: If you really want to know, I'll tell you. But it's quite the depressing story...",
             c3: "",
 
 
-            // Warning for threatening
+            // Warning for threatening (BAD)
             d0: "???: what...?",
             d1: "",
             d2: "???: Seriously. Stop it. Who are you?",
@@ -56,7 +56,7 @@
             d4: "???: I'm not going to ask again.",
             
             
-            // accepts to hear her story
+            // accepts to hear her story (GOOD)
             e0: "???: Well then... It was only two years ago that a number of strange travellers showed up at this village.",
             e1: "???: They were foreigners just like you are, except they were more manly and intimidating...",
             e2: "???: We housed and provided them with the utmost friendly experience. Yet, they were always aggressive and quite rude to us.",
@@ -72,7 +72,7 @@
             e12: "",
 
 
-            // second half of story
+            // second half of story (GOOD)
             ea0: "???: I walked into the streets only to find the bodies of all my friends and family layed out, covered in blood and bullet holes...",
             ea1: "???: I remember how my vision became more and more blurry as the tears filled my eyes...",
             ea2: "???: I checked every heartbeat and every building for anyone... anyone at all... I just needed someone to say something.",
@@ -83,7 +83,7 @@
             ea7: "???: But how am I supposed to...",
             ea8: "",
 
-            // declines to hear the second half of the story
+            // declines to hear the second half of the story (BAD)
             eb0: "???: H-h-how dare you?!",
             eb1: "Woah, okay. Calm down, I didn't mean to-",
             eb2: "???: Don't you dare tell me to calm down, you don't know what I've been through!",
@@ -106,6 +106,7 @@
             eb19: "*The girl stands up straight and takes a deep breath*",
             eb20: "",
 
+            // Player claims to not know who the military group are (GOOD)
             ec0: "???: Ah... Thank you, it means a lot that you'd believe in me despite not known who or what I am.",
             ec1: "???: I have to thank you for being so willing to listen to my story, I'm truly grateful.",
             ec2: "It's okay, I can't begin to imagine what you're feeling right now... erm...",
@@ -113,6 +114,8 @@
             ec4: "???: I can't believe I forgot to introduce myself!",
             ec5: "",
 
+
+            // Player tells her who the military group are (GAME OVER)
             ed0: "???: Oh...? So you know who they are?",
             ed1: "**crap! i shouldn't have said that**",
             ed2: "Ermm... well it's common knowledge where I'm from.",
@@ -140,11 +143,30 @@
             ed24: "GAME OVER",
             ed25: "",
 
-            // declines hearing her story
-            f0: "Oh... I see... It doesn't matter anyway. What's done is done and there's no use dwelling on it.",
-            f1: "",
+            // declines hearing her story (BAD)
+            f0: "???: Oh... I see... It doesn't matter anyway. What's done is done and there's no use dwelling on it.",
+            f1: "You still haven't told me your name... hah~",
+            f2: "???: Oh my! I completely forgot!",
+            f3: "*The girl closes her eyes, taking a deep breath and opens her eyes with a friends and warm smile*",
+            f4: "",
 
-            g0: "Aiko: My name is Aiko, it is a pleasure to have you here. I want you to feel welcomed here at Shilo Village.",
+            g0: "Aiko: My name is Aiko, it is a pleasure to have you here. I hope you feel welcomed here at Shilo Village.",
+            g1: "Aiko: I know it doesn't look like much, but this town has everything you could ever need!",
+            g2: "Such as?",
+            g3: "Aiko: We have bedrooms.",
+            g4: "Bedrooms, awesome! What else?",
+            g5: "Aiko: We have a school!",
+            g6: "Hmmm with the cute school girls?",
+            g7: "Aiko: What? How old are you?",
+            g8: "Haha~ I was joking, I was joking...",
+            g9: "Anyway, what else is there?",
+            g10: "Aiko: Erm... we have Bedrooms!",
+            g11: "I see... everything I need huh?",
+            g12: "Aiko: Haha~ yes, you'll be at home here, don't worry!",
+            g13: "Aiko: There's a number of places you could stay at, just feel free to pick any and rest.",
+            g14: "Aiko: If you need anything, I'll be right here!",
+            g15: "Actually...",
+            g16: "",
 
 
             // Game over dialogue (gg = Good Game; a common online gaming term used when a game is finished)

@@ -35,7 +35,6 @@ choice1.addEventListener("click", () => {
             break;
 
         case "c2":
-            addLove(false);
             changeExpression("cry1");
             hideChoices();
             updateDialogue("ea0");
