@@ -49,6 +49,10 @@ choice2.addEventListener('click', () => {
                 hideChoices();
                 updateDialogue("ec0");
                 break;
+
+            case "d1":
+                hideChoices();
+                updateDialogue("h0");
         }
     }
 });

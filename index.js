@@ -235,12 +235,44 @@ textArea.addEventListener('click', () => {
             break;
 
         /////////////////////////////////////
-        /////////////     G     /////////////
+        /////////////     H     /////////////
         /////////////////////////////////////
             
         case "g16":
-            showChoices("g1");
+            changeChoices("d1");
+            showChoices();
+            break;
 
+
+        case "h2":
+            changeExpression("blink2");
+            break;
+
+        case "h6":
+            setDisplay(blackScreen, textArea, "block", 250);
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
+            break;
+
+        /////////////////////////////////////
+        /////////////     I     /////////////
+        /////////////////////////////////////
+
+        case "i3":
+            changeExpression("blink1");
+            break;
+
+        case "i25":
+            setTransition(aiko, "2.5s ease");
+            aiko.style.opacity = "0";
+            setDisplay(blackScreen, undefined, "block", 250);
+            break;
+
+        case "i28":
+            location.reload();
+            break;
+            
         ///////////////////////////////////////
         /////////////     GG     /////////////
         /////////////////////////////////////

@@ -45,6 +45,11 @@ choice1.addEventListener("click", () => {
             hideChoices();
             updateDialogue("ed0");
             break;
+
+        case "d1":
+            hideChoices();
+            updateDialogue("i0");
+            break;
         }
     }
 );
